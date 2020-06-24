@@ -45,12 +45,11 @@ def binaryMask(frame, x0, y0, width, height ):
         if lastgesture != retgesture :
             lastgesture = retgesture
             
-            ## Checking for only PUNCH gesture here
-            ## Run this app in Prediction Mode and keep Chrome browser on focus with Internet Off
-            ## And have fun :) with Dino
+            ## Checking for only PUNCH gesture here for the Play Pause feature
+            # Run this script in the background with media player in focus. 
             if lastgesture == 3:
+                # Keycode 49 is Spacebar which is used for the play pause action
                 jump = ''' osascript -e 'tell application "System Events" to key code 49' '''
-                #jump = ''' osascript -e 'tell application "System Events" to key down (49)' '''
                 os.system(jump)
                 print (myNN.Labels[lastgesture] + "= pause play!")
 
